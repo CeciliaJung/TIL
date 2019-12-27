@@ -29,6 +29,7 @@ Initialized empty Git repository in C:/Users/HPE/Desktop/TIL/.git/
 
 - git 저장소를 생성하면, 해당 디렉토리에 `.git` 폴더가 생성된다.
 - `(master)` 는 현재 작업 중인 브랜치가 master라는 의미를 가지고 있다.
+- cf. `clone` : 리모트 저장소의 주소를 가져오는 것, local 저장소로 지정하는 것이 아니다.
 
 ### 2. add
 
@@ -97,7 +98,7 @@ Initialized empty Git repository in C:/Users/HPE/Desktop/TIL/.git/
 - 이력을 남기기 위해서는 아래의 명령어를 활용한다.
 
   ``` bash
-  $ gitcommit -m '커밋메시지'
+  $ git commit -m '커밋메시지'
   [master (root-commit) 52e699b] markdown 활용법 추가
    1 file changed, 120 insertions(+)
    create mode 100644 markdown.md
@@ -135,7 +136,7 @@ $ git remote add origin github_url
 - 설정된 원격 저장소 목록을 확인하기 위해서는 아래의 명령어를 활용한다.
 
   ``` bash
-  $ git remove -v
+  $ git remote -v
   origin  https://github.com/CeciliaJung/TIL.git (fetch)
   origin  https://github.com/CeciliaJung/TIL.git (push)
   ```
@@ -149,11 +150,32 @@ $ git remote add origin github_url
   #충돌이 발생하거나 add가 되지 않을 때는 일단 remove 후, add origin
   ```
 
-  ### 2. `push`
+### 2. `push`
 
-  ``` bash
-  $ git push origin master
-  ```
+``` bash
+$ git push origin master
+```
 
-  - `origin` 으로 설정된 url 에 `master` 브랜치로 `push`한다.
-  - 
+- `origin` 으로 설정된 url 주소에  `master` 브랜치로 `push`한다.
+
+##   gitignore
+
+git 저장소로 설정된 폴더의 모든 파일들은 변경사항이 추적된다.
+
+만일, 내가 git으로 관리하고 싶지 않은 파일이 있다면 `.gitignore` 파일을 생성하고, 다음과 같이 설정한다.
+
+``` python
+*.xlsx # 특정 확장자인 파일
+a.txt # 특정 파일
+images # 특정 폴더
+!upload.xlsx # 특정 파일 제외
+```
+
+직접 추가하는 내용 뿐만 아니라 일반적인 개발 환경에서 반드시 설정하는 파일/ 폴더들이 있다.
+
+예) IDE 설정 파일, cache 파일등.......
+
+ 처음에는 직접 설정하기 힘드니, [gitignore.io](http://gitignore.io/) 에서 만들어진 내용을 가져온다.
+
+`windows`, `node`, `react`, `visualstudiocode`
+
