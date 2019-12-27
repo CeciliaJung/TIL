@@ -115,7 +115,45 @@ Initialized empty Git repository in C:/Users/HPE/Desktop/TIL/.git/
   ``` bash
   $ git log
   $ git log --oneline
-  $ git log -1
+  $ git log-1
   ```
 
   
+
+## 원격 저장소(remote repository) 활용하기
+
+> 원격 저장소를 제공하는 서비스는 gitlab, github, bitbucket 등 다양하나 github을 기준으로 설명한다.
+
+### 1. 원격 저장소 설정하기
+
+``` bash
+$ git remote add origin github_url
+```
+
+- 원격저장소(`remote`) 를 `origin`이름으로 `github_url` 을 추가(`add`)한다.
+
+- 설정된 원격 저장소 목록을 확인하기 위해서는 아래의 명령어를 활용한다.
+
+  ``` bash
+  $ git remove -v
+  origin  https://github.com/CeciliaJung/TIL.git (fetch)
+  origin  https://github.com/CeciliaJung/TIL.git (push)
+  ```
+
+  
+
+- 설정된 원격 저장소를 삭제는 아래의 명령어 활용
+
+  ``` bash
+  $ git remote rm origin
+  #충돌이 발생하거나 add가 되지 않을 때는 일단 remove 후, add origin
+  ```
+
+  ### 2. `push`
+
+  ``` bash
+  $ git push origin master
+  ```
+
+  - `origin` 으로 설정된 url 에 `master` 브랜치로 `push`한다.
+  - 
